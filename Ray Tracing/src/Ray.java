@@ -30,8 +30,6 @@ public class Ray {
 				double b = (-2)*((x2 - x1)*(o.x - x1) + (y2 - y1)*(o.y - y1) + (o.z - z1)*(z2 - z1));
 				double c = Math.pow((o.x - x1),2) + Math.pow((o.y - y1),2) + Math.pow((o.z - z1),2) - ((Sphere)o).r*((Sphere)o).r;
 				
-				
-				//System.out.println(b*b - 4*a*c);
 				if(b*b - 4*a*c >= 0) {
 					color = new Color(255,255,255);
 				}

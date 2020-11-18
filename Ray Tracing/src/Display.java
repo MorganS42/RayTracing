@@ -1,18 +1,17 @@
-import java.awt.AlphaComposite;
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 class Window extends JFrame {	
+	public final static int width = 800;
+	public final static int height = 800;
+	public final static int res = 1;
+	public final static Color[][] screen = new Color[width][height];
+	
 	JFrame frame;
 	Draw draw;
 	Window() {
@@ -29,6 +28,8 @@ class Window extends JFrame {
 	}
 }
 
+
+@SuppressWarnings("serial")
 class Draw extends JPanel {
 	public Draw() {
 		
@@ -36,11 +37,11 @@ class Draw extends JPanel {
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setPaint(new Color(0,0,0));
-		g2.fillRect(0, 0, Main.width*Main.res, Main.height*Main.res);
-		for(int x = 0; x<Main.width; x++) {
-			for(int y = 0; y<Main.height; y++) {
-				g2.setPaint(Main.screen[x][y]);
-				g2.fillRect(0, 0, Main.width*Main.res, Main.height*Main.res);
+		g2.fillRect(0, 0, Window.width*Window.res, Window.height*Window.res);
+		for(int x = 0; x<Window.width; x++) {
+			for(int y = 0; y<Window.height; y++) {
+				g2.setPaint(Window.screen[x][y]);
+				g2.fillRect(x*Window.res, y*Window.res, x*Window.res + Window.res, y*Window.res + Window.res);
 			}
 		}
 	}

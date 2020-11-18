@@ -8,13 +8,13 @@ public class Scene {
 		renderScene();
 	}
 	void createScene() {
-		objects.add(new Sphere(100,100,0,142));
+		objects.add(new Sphere(400,400,0,50));
 	}
 	
 	void renderScene() {
-		for(int x = 0; x<Main.width; x++) {
-			for(int y = 0; y<Main.height; y++) {
-				Main.screen[x][y] = (new Ray(x,y,0,0,0,1)).run();
+		for(int x = 0; x<Window.width; x++) {
+			for(int y = 0; y<Window.height; y++) {
+				Window.screen[x][y] = (new Ray(Camera.x,Camera.y,Camera.z, x - Camera.x, y - Camera.y, 0 - Camera.z)).run();
 			}
 		}
 	}
